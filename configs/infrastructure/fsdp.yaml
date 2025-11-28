@@ -1,0 +1,15 @@
+backend: "nccl"
+sharding_strategy: "FULL_SHARD"
+mixed_precision: "bf16"
+
+activation_checkpointing:
+  enabled: true
+  checkpoint_every_n_layers: 4
+
+communication:
+  bucket_cap_mb: 25
+  gradient_as_bucket_view: true
+
+memory_optimization:
+  limit_all_gathers: true
+  use_orig_params: false

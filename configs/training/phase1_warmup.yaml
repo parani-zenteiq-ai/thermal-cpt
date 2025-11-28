@@ -1,0 +1,42 @@
+name: "phase1_warmup"
+phase: 1
+total_tokens: 5_000_000_000
+
+model:
+  config: "configs/model/qwen2.5-7b.yaml"
+  checkpoint: null
+
+training:
+  sequence_length: 4096
+  micro_batch_size: 2
+  gradient_accumulation_steps: 16
+  max_steps: 19073
+  
+  optimizer:
+    type: "adamw"
+    lr: 2.0e-5
+    betas: [0.9, 0.95]
+    eps: 1.0e-8
+    weight_decay: 0.1
+  
+  scheduler:
+    type: "cosine_with_warmup"
+    warmup_steps: 381
+    min_lr: 2.0e-6
+  
+  precision: "bf16"
+  max_grad_norm: 1.0
+  seed: 42
+
+distributed:
+  config: "configs/infrastructure/fsdp.yaml"
+
+checkpointing:
+  save_every_steps: 9536
+  save_dir: "checkpoints/phase1"
+  keep_last_n: 2
+
+logging:
+  log_every_steps: 10
+  wandb_project: "thermal-cpt"
+  wandb_run_name: "phase1_warmup"

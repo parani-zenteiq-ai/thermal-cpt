@@ -1,0 +1,22 @@
+tokenizer: "Qwen/Qwen2.5-7B"
+
+deduplication:
+  enabled: true
+  method: "minhash"
+  threshold: 0.85
+  num_perm: 128
+
+quality_filters:
+  min_length_tokens: 256
+  max_length_tokens: 8192
+  min_unique_token_ratio: 0.10
+  max_special_char_ratio: 0.30
+
+packing:
+  sequence_length: 4096
+  add_eos_between_docs: true
+  drop_incomplete_sequences: true
+
+output:
+  format: "numpy_memmap"
+  dtype: "int32"

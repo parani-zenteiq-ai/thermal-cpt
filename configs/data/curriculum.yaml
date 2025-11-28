@@ -1,0 +1,30 @@
+# Phase 1: Warmup (5B tokens)
+phase1:
+  total_tokens: 5_000_000_000
+  mixture:
+    fineweb_edu: 0.30
+    arxiv_thermal: 0.40
+    stackexchange: 0.10
+    github_thermal: 0.04
+    arxiv_general: 0.16
+
+# Phase 2: Domain Focus (25B tokens)
+phase2:
+  total_tokens: 25_000_000_000
+  mixture:
+    arxiv_thermal: 0.40
+    simulation_reports: 0.12
+    arxiv_general: 0.20
+    github_thermal: 0.08
+    fineweb_edu: 0.06
+    stackexchange: 0.04
+
+# Phase 3: Specialization (10B tokens)
+phase3:
+  total_tokens: 10_000_000_000
+  mixture:
+    arxiv_thermal: 0.50
+    simulation_reports: 0.20
+    arxiv_general: 0.20
+    fineweb_edu: 0.08
+    github_thermal: 0.02

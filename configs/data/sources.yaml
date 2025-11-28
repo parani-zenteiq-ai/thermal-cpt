@@ -1,0 +1,53 @@
+# Data source definitions
+
+arxiv_thermal:
+  type: "text"
+  categories:
+    - "physics.flu-dyn"
+    - "physics.class-ph"
+    - "math.AP"
+  keywords:
+    - "heat transfer"
+    - "convection"
+    - "conduction"
+    - "CFD"
+    - "thermal"
+    - "Navier-Stokes"
+  output_dir: "data/raw/arxiv_thermal"
+
+fineweb_edu:
+  type: "text"
+  source: "HuggingFaceFW/fineweb-edu"
+  quality_threshold: 3
+  sample_tokens: 1_500_000_000
+  output_dir: "data/raw/fineweb_replay"
+
+stackexchange:
+  type: "qa"
+  sites:
+    - "physics"
+    - "engineering"
+    - "scicomp"
+  tags:
+    - "thermodynamics"
+    - "heat-transfer"
+    - "fluid-dynamics"
+    - "cfd"
+  output_dir: "data/raw/stackexchange"
+
+github_thermal:
+  type: "code"
+  repos:
+    - "OpenFOAM/OpenFOAM-dev"
+    - "FEniCS/dolfinx"
+  keywords:
+    - "heat"
+    - "thermal"
+    - "temperature"
+  output_dir: "data/raw/github_thermal"
+
+simulation_reports:
+  type: "text"
+  source: "local"
+  input_dir: "data/raw/simulation_reports"
+  count: 1000
