@@ -19,3 +19,7 @@ venv/
 
 # OS
 .DS_Store
+.txt
+
+/data/
+!/src/data/
